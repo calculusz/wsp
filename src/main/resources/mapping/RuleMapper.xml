@@ -9,19 +9,15 @@
 
     </resultMap>
 
-    <select id="selectRuleById" parameterType="java.lang.Integer" resultMap="UserBaseMap">
-        SELECT * FROM t_user
-        WHERE id = #{userId}
+    <select id="selectRuleById" parameterType="java.lang.Integer" resultMap="RuleBaseMap">
+        SELECT * FROM rule
+        WHERE id = #{ruleid}
     </select>
 
-    <select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">
-        SELECT * FROM t_user
-        WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}
-        AND user_state = #{state}
-    </select>
 
-    <select id="selectAllUser" resultMap="UserBaseMap">
-        SELECT * FROM t_user
+
+    <select id="selectAllRule" resultMap="RuleBaseMap">
+        SELECT * FROM rule
     </select>
 
 </mapper>
