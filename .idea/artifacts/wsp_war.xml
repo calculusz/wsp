@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wsp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="wsp.war">
+      <element id="artifact" artifact-name="wsp:war exploded" />
+    </root>
+  </artifact>
+</component>
