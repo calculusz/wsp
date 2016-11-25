@@ -3,16 +3,13 @@
 <mapper namespace="com.zhang.wsp.dao.RuleDao">
 
     <resultMap id="RuleBaseMap" type="com.zhang.wsp.model.Rule">
-        <id column="id" property="id" jdbcType="INT"/>
-        <result column="ruleid" property="ruleid" jdbcType="INT"/>
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="ruleid" property="ruleid" jdbcType="INTEGER"/>
         <result column="description" property="description" jdbcType="VARCHAR"/>
 
     </resultMap>
 
-    <select id="selectRuleById" parameterType="java.lang.Integer" resultMap="RuleBaseMap">
-        SELECT * FROM rule
-        WHERE id = #{ruleid}
-    </select>
+
 
 
 
