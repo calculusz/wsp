@@ -23,6 +23,7 @@ public class RuleController {
     @RequestMapping("/show")
     public String showRule(HttpServletRequest request, Model model){
         List<Rule> list= ruleDao.selectAllRule();
+        ruleDao.addRule("jingdong");
         return "success";
     }
 
