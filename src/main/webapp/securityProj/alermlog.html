@@ -56,13 +56,13 @@
         </tr>
 
         <tr>
-            <td>1</td><td>/192.168.3.1</td><td>京东</td>
-        </tr>
-        <tr>
-            <td>3</td><td>/192.168.3.11</td><td>淘宝</td>
-        </tr>
-        <tr>
-            <td>4</td><td>/192.168.8.1</td><td>QQ</td>
+            <!--<td>1</td><td>/192.168.3.1</td><td>京东</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>3</td><td>/192.168.3.11</td><td>淘宝</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>4</td><td>/192.168.8.1</td><td>QQ</td>-->
         </tr>
 
 
@@ -70,7 +70,58 @@
 
 
 
+
 </div>
 
+
 </body>
+<script>
+    var option = {
+        "info": [{
+            "ID": "1",
+            "address":"/192.168.3.1",
+            "name": "淘宝"
+        },{
+            "ID": "2",
+            "address":"/192.168.3.2",
+            "name": "京东"
+        },{
+            "ID": "3",
+            "address":"/192.168.3.3",
+            "name": "QQ"
+        },
+            ,{
+                "ID": "4",
+                "address":"/192.168.3.4",
+                "name": "天猫"
+            },
+            ,{
+                "ID": "4",
+                "address":"/192.168.3.6",
+                "name": "新浪"
+            }]
+    };
+    function rules(option){
+        option.info.forEach(function(name, index){
+            var tr = document.createElement("tr");
+            var grid = document.getElementById("grid");
+            var str = "<td>" + option.info[index].ID + "</td><td>" +
+                    option.info[index].address + "</td><td>" +
+                    option.info[index].name+ "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>删除</a></td>";
+            tr.innerHTML = str;
+            grid.appendChild(tr);
+        });
+    }
+    rules(option);
+    function deleteCurrentRow(obj){
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+        //只剩行首时删除表格
+        if(tbody.rows.length==1) {
+            tbody.parentNode.removeChild(tbody);
+        }
+    }
+</script>
+
 </html>
