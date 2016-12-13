@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table.gridtable {
+            font-family: verdana,arial,sans-serif;
+            font-size:17px;
+            color:#919191;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table.gridtable th {
+            border-width: 1px;
+            padding: 6px;
+            font-family:sans-serif;
+            font-size:13px;
+            color:#333333;
+            border-style: solid;
+            border-color: #F5FFFA;
+            background-color: #dedede;
+            text-align:left;
+        }
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #F5FFFA;
+            background-color:#F5FFFA;
+        }
+
+
+        h1{
+            font-family:楷体;
+            color:#4F4F4F;
+            font-weight:normal;
+            font-size: 39px;
+        }
+        a{
+        	text-decoration: none;
+        	color:#4F4F4F;
+        }
+    </style>
+
+</head>
+<body bgcolor="#F5FFFA">
+</br></br></br></br><hr color="#F0F0F0"/></br></br></br></br>
+<h1>&nbsp;规则列表</h1><hr color="#F0F0F0"/>
+
+
+
+<div align="center">
+
+    <!-- Table goes in the document BODY -->
+    <table class="gridtable" width="1150" id="grid">
+        <tr>
+            <th><input name="remember" type="checkbox" id="remember" />规则号</th><th>规则名称</th><th>操作</th>
+        </tr>
+        <tr>
+            <!--<td>
+            	<span id="ID"></span>
+            </td>
+            <td>
+            	<span id="name"></span>
+            </td>
+            <td>
+            	<span id="dele"></span>
+            </td>-->
+        </tr>
+    </table>
+
+
+
+</div>
+
+</body>
+	<script>
+		var option = {
+			"info": [{
+				"ID": "1",
+				"name": "淘宝"
+			},{
+				"ID": "2",
+				"name": "淘宝"
+			},{
+				"ID": "3",
+				"name": "淘宝"
+			},
+			,{
+				"ID": "4",
+				"name": "淘宝"
+			},
+			,{
+				"ID": "5",
+				"name": "淘宝"
+			}]
+		};
+		function rules(option){
+			option.info.forEach(function(name, index){
+				var tr = document.createElement("tr");
+				var grid = document.getElementById("grid");
+				var str = "<td>" + option.info[index].ID + "</td><td>" + 
+						 	option.info[index].name + "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>删除</a></td>";
+				tr.innerHTML = str;
+				grid.appendChild(tr);
+			});
+		}
+		rules(option);
+		function deleteCurrentRow(obj){  
+            var tr=obj.parentNode.parentNode;  
+            var tbody=tr.parentNode;  
+            tbody.removeChild(tr);  
+            //只剩行首时删除表格  
+            if(tbody.rows.length==1) {  
+                tbody.parentNode.removeChild(tbody);  
+            }  
+        } 
+	</script>	
+
+</html>

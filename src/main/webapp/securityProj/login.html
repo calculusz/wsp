@@ -1,0 +1,134 @@
+﻿
+<!doctype html>
+<html>
+   <meta charset="utf-8" />
+   <head>
+        <title>登陆界面！</title>
+        <style type="text/css">
+        	#centerdiv{
+			    /*测试用到，可任意设置长宽。*/
+			    width:700px;
+			    height:300px;
+			   /* background:#336633;*/
+			    position: absolute;
+			}
+
+        </style>
+   </head>
+
+<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">  
+<img src="images/background.jpg" height="100%" width="100%"/>  
+<script type="text/javascript">
+    $(function(){
+    $('#formbackground').height($(window).height());
+    $('#formbackground').width($(window).width());
+});
+</script>
+    <SCRIPT LANGUAGE="JavaScript">
+        function createCode(len)
+        {
+            var seed = new Array(
+                    'abcdefghijklmnopqrstuvwxyz',
+                    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    '0123456789'
+            );               //创建需要的数据数组
+            var idx,i;
+            var result = '';   //返回的结果变量
+            for (i=0; i<len; i++) //根据指定的长度
+            {
+                idx = Math.floor(Math.random()*3); //获得随机数据的整数部分-获取一个随机整数
+                result += seed[idx].substr(Math.floor(Math.random()*(seed[idx].length)), 1);//根据随机数获取数据中一个值
+            }
+            return result; //返回随机结果
+        }
+
+        function test() {
+            var inputRandom=document.getElementById("inputRandom").value;
+            var autoRandom=document.getElementById("autoRandom").innerHTML;
+            if(inputRandom==autoRandom) {
+                alert("通过验证");
+            } else {
+                alert("没有通过验证");
+            }
+
+        }
+    </SCRIPT>
+    <script type="text/javascript">
+        window.onload()=autoRandom.innerHTML=createCode(4);
+    </script>
+    <form align="center" style="background-color:#cde5f3;color:#003355" class="wrap" action="index.html">   <!--跳转到主页面上-->
+      
+         <div style = "" class="frame_1" align="center" id="centerdiv">
+             <h1 style="text-align:center">欢迎使用此系统！</h1>
+         
+	         <table class="form_1">
+	        
+				<tr>
+					<td class="label" >用户名：</td>
+					<td>
+					    <input class="textbox_1 " id="username" name="username" type="text"  style="width:190px;height:20px;margin-bottom:10px;">					                </td>
+				        <td><span class="info"><label class="error"></label></span></td>
+				</tr>
+				<tr  >
+					<td class="label">登录密码：</td>
+					<td>
+						<input class="textbox_1 " id="password" name="password" type="password" value="" style="width:190px;height:20px;margin-bottom:10px;">					</td>
+					<td><span class="info"><label class="error"></label></span></td>
+				</tr>
+
+                 <tr>
+                     <td>验证码：</td>
+                     <td><input type="text" style="width:50px;height:20px;margin-bottom:10px;" id="inputRandom" >
+                     <label id="autoRandom" value=""></label><INPUT TYPE="button"  VALUE="获取验证码"
+                                                                        ONCLICK="autoRandom.innerHTML=createCode(4)">
+                     <input type="button" value="验证" onclick="test()"></td>
+                 </tr>
+
+				<tr>
+					<td class="label"></td>
+					<td>
+					    <input name="remember" type="checkbox" id="remember" />
+					    <label for="remember">记住登录状态</label>
+					</td>
+				</tr>
+			        <tr class="actions">
+					<td></td>
+                 <tr></tr><td></td>
+                        <td >&nbsp;&nbsp;<input type="submit" name="Submit" value="登陆" onClick="return check();" >&nbsp;
+                        <input type="reset" name="Submit2" value="重置" ></td>
+				</tr>
+
+
+
+	  		</table>
+
+		</div>
+
+</form>
+
+
+</body>
+</div>
+<script type="text/javascript">
+	 window.onload=function(){
+        var center=document.getElementById("centerdiv");
+        var width=center.clientWidth;
+        var height=center.clientHeight;
+        var w= window.innerWidth;//浏览器窗口大小
+        var h=window.innerHeight;
+        center.style.left=(w-width)/2+"px";
+        center.style.top=(h-height)/2+"px";
+        // alert(w+","+width);
+        // alert(h+","+height);
+    }
+</script>
+
+</html>
+
+
+
+
+
+
+
+
