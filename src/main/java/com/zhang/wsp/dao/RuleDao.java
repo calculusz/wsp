@@ -1,5 +1,6 @@
 package com.zhang.wsp.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import com.zhang.wsp.model.Rule;
 
@@ -11,4 +12,6 @@ import java.util.List;
 @Repository
 public interface RuleDao {
     List<Rule> selectAllRule();
+    void addRule(@Param("description") String description);
+    void delRule(@Param("ruleid") int ruleid);
 }

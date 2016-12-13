@@ -17,4 +17,8 @@
         SELECT * FROM rule
     </select>
 
+    <select id="addRule" parameterType="java.lang.String" >
+        INSERT INTO rule (description) VALUES (#{description})
+
+    </select>
 </mapper>
