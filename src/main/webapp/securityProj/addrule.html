@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <head>
     <title>登陆界面！</title>
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     <style type="text/css">
         #centerdiv{
             /*测试用到，可任意设置长宽。*/
@@ -12,50 +13,37 @@
             /* background:#336633;*/
             position: absolute;
         }
+        .help-block{
+            color:#c09853
+        }
+        .has-error .help-block,.has-error .control-label{
+            color:#b94a48
+        }
+        .has-error .form-control{
+            border-color:#b94a48;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075)
+        }
+        .has-success .help-block,.has-success .control-label{
+            color:#468847
+        }
+
     </style>
 </head>
 
 <div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">
     <img src="images/addrule.jpg" height="100%" width="100%"/>
+    <script src="js/jquery-1.10.2.min.js"></script>
+
     <script type="text/javascript">
         $(function(){
             $('#formbackground').height($(window).height());
             $('#formbackground').width($(window).width());
         });
     </script>
-    <!--<SCRIPT LANGUAGE="JavaScript">
-        function createCode(len)
-        {
-            var seed = new Array(
-                    'abcdefghijklmnopqrstuvwxyz',
-                    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                    '0123456789'
-            );               //创建需要的数据数组
-            var idx,i;
-            var result = '';   //返回的结果变量
-            for (i=0; i<len; i++) //根据指定的长度
-            {
-                idx = Math.floor(Math.random()*3); //获得随机数据的整数部分-获取一个随机整数
-                result += seed[idx].substr(Math.floor(Math.random()*(seed[idx].length)), 1);//根据随机数获取数据中一个值
-            }
-            return result; //返回随机结果
-        }
 
-        function test() {
-            var inputRandom=document.getElementById("inputRandom").value;
-            var autoRandom=document.getElementById("autoRandom").innerHTML;
-            if(inputRandom==autoRandom) {
-                alert("通过验证");
-            } else {
-                alert("没有通过验证");
-            }
-
-        }
-    </SCRIPT>-->
-    <script type="text/javascript">
-        window.onload()=autoRandom.innerHTML=createCode(4);
-    </script>
-    <form align="center" style="background-color:#cde5f3;color:#003355" class="wrap" action="rule1.html">   <!--跳转到主页面上-->
+    <!--<script type="text/javascript">-->
+    <!--window.onload()=autoRandom.innerHTML=createCode(4);-->
+    <!--</script>-->
+    <form align="center" style="background-color:#cde5f3;color:#003355" class="wrap" >   <!--跳转到主页面上-->
 
         <div style = "" class="frame_1" align="center" id="centerdiv">
             <h1 style="text-align:center">添加规则！</h1>
@@ -65,21 +53,21 @@
                 <tr>
                     <td class="label" >规则名称：</td>
                     <td>
-                        <input class="textbox_1 " id="username" name="username" type="text"  style="width:190px;height:20px;margin-bottom:10px;">					                </td>
+                        <input required class="textbox_1 " id="username" name="username" type="text"  style="width:190px;height:20px;margin-bottom:10px;">					                </td>
                     <td><span class="info"><label class="error"></label></span></td>
                 </tr>
                 <tr  >
                     <td class="label">规则描述：</td>
                     <td>
-                        <input class="textbox_1 " id="password" name="password" type="password" value="" style="width:190px;height:20px;margin-bottom:10px;">					</td>
+                        <input required class="textbox_1 " id="describe" name="describe" type="text" value="" style="width:190px;height:20px;margin-bottom:10px;">					</td>
                     <td><span class="info"><label class="error"></label></span></td>
                 </tr>
 
                 <tr class="actions">
                     <td></td>
                 <tr></tr><td></td>
-                <td >&nbsp;&nbsp;<input type="submit" name="Submit" value="添加" onClick="return check();" >&nbsp;
-                    <input type="reset" name="Submit2" value="重置" ></td>
+                <td >&nbsp;&nbsp;<input type="button" name="Submit" value="添加" onClick="submitForm();" >&nbsp;
+                    <input type="reset" name="Submit2" value="重置" onclick="removeStyle()"></td>
                 </tr>
 
 
@@ -93,8 +81,9 @@
 
     </body>
 </div>
+<script src="js/jquery.validate.min.js"></script>
 <script type="text/javascript">
-    window.onload=function(){
+    $(function(){
         var center=document.getElementById("centerdiv");
         var width=center.clientWidth;
         var height=center.clientHeight;
@@ -104,6 +93,99 @@
         center.style.top=(h-height)/2+"px";
         // alert(w+","+width);
         // alert(h+","+height);
+    })
+    function validateForm(){
+        return $('.wrap').validate({
+            errorElement: 'span',
+            errorClass: 'help-block',
+            focusInvalid: true,
+            onfocusout: function(element) {
+                $(element).valid();
+            },    //失去焦点时验证
+            onsubmit: true,  //提交时验证
+            rules: {
+                username:{
+                    required:true
+                },
+                describe:{
+                    required:true
+                }
+
+            },
+
+            messages: {
+                username:{
+                    required:'必填'
+                },
+                describe:{
+                    required:'必填'
+                }
+            },
+
+            invalidHandler: function (event, validator) { //display error alert on form submit
+                //$('.alert-danger', $('.login-form')).show();
+            },
+
+            highlight: function (e) {
+
+                $(e).closest('tr').removeClass('has-info').addClass('has-error');
+            },
+
+            success: function (e) {
+
+                $(e).closest('tr').removeClass('has-error').addClass('has-info');
+                $(e).remove();
+
+            },
+
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            },
+
+            submitHandler: function (form) {
+
+//                form.submit();
+            },
+            invalidHandler: function (form) {
+            }
+        }).form();
+    }
+    function removeStyle(){
+        $('tr').removeClass('has-error');
+        $('tr').removeClass('has-info');
+        $('span.help-block').remove();
+    }
+
+    function submitForm(){
+        if(validateForm()){
+            $.ajax({
+                url:'',//'http://192.178.106.100:3000/mock/test',
+                data:{
+                    username:$('#username').val(),
+                    describe:$('#describe').val()
+                },
+                type:'GET',
+                success:function(data){
+                    console.log('data success:'+JSON.stringify(data));
+                    var data = {"message": "success"};
+                    if(data.message == 'success'){
+                        //说明添加成功
+                        //进行跳转页面
+                        location.href = 'rule1.html';
+                    }
+                    else{
+                        //输入框 充填
+                        $('#username').val('');
+                        $('#describe').val('');
+
+                    }
+                },
+                error:function(data){
+                    alert('data error:'+JSON.stringify(data));
+                }
+            })
+        }
+
     }
 </script>
 

@@ -19,7 +19,7 @@ $(function(){
 
 
 	$('#tabs').tabs('add',{
-		title:'疯狂秀才',
+		title:'行为监控系统',
 		content:createFrame('http://hxling.cnblogs.com')
 	}).tabs({
         onSelect: function (title) {

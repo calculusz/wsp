@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html  xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -39,8 +39,8 @@
             font-size: 39px;
         }
         a{
-        	text-decoration: none;
-        	color:#4F4F4F;
+            text-decoration: none;
+            color:#4F4F4F;
         }
     </style>
 
@@ -75,48 +75,66 @@
 
 </div>
 
+
 </body>
-	<script>
-		var option = {
-			"info": [{
-				"ID": "1",
-				"name": "淘宝"
-			},{
-				"ID": "2",
-				"name": "淘宝"
-			},{
-				"ID": "3",
-				"name": "淘宝"
-			},
-			,{
-				"ID": "4",
-				"name": "淘宝"
-			},
-			,{
-				"ID": "5",
-				"name": "淘宝"
-			}]
-		};
-		function rules(option){
-			option.info.forEach(function(name, index){
-				var tr = document.createElement("tr");
-				var grid = document.getElementById("grid");
-				var str = "<td>" + option.info[index].ID + "</td><td>" + 
-						 	option.info[index].name + "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>删除</a></td>";
-				tr.innerHTML = str;
-				grid.appendChild(tr);
-			});
-		}
-		rules(option);
-		function deleteCurrentRow(obj){  
-            var tr=obj.parentNode.parentNode;  
-            var tbody=tr.parentNode;  
-            tbody.removeChild(tr);  
-            //只剩行首时删除表格  
-            if(tbody.rows.length==1) {  
-                tbody.parentNode.removeChild(tbody);  
-            }  
-        } 
-	</script>	
+<script src="js/jquery-1.10.2.min.js"></script>
+<script>
+    $.ajax({
+        url:'',
+        type:'GET',
+        success:function(data){
+            console.log('data:'+JSON.stringify(data));
+            var option ='';
+            data = option;
+            option = {
+                "info": [{
+                    "ID": "1",
+                    "name": "淘宝"
+                },{
+                    "ID": "2",
+                    "name": "淘宝"
+                },{
+                    "ID": "3",
+                    "name": "淘宝"
+                }
+                    ,{
+                        "ID": "4",
+                        "name": "京东"
+                    }
+                    ,{
+                        "ID": "5",
+                        "name": "淘宝"
+                    }]
+            };
+
+            rules(option);
+
+        },
+        error:function(data){
+
+        }
+
+    })
+
+    function rules(option){
+        option.info.forEach(function(name,index){
+            var tr = document.createElement("tr");
+            var grid = document.getElementById("grid");
+            var str = "<td>" + option.info[index].ID + "</td><td>" +
+                    option.info[index].name + "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>删除</a></td>";
+            tr.innerHTML = str;
+            grid.appendChild(tr);
+        });
+    }
+    function deleteCurrentRow(obj){
+        var tr=obj.parentNode.parentNode;
+        var tbody=tr.parentNode;
+        tbody.removeChild(tr);
+        //只剩行首时删除表格
+        if(tbody.rows.length==1) {
+            tbody.parentNode.removeChild(tbody);
+        }
+    }
+</script>
 
 </html>

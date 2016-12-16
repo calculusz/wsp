@@ -20,7 +20,7 @@
 									{"menuid":"16","menuname":"系统日志","icon":"icon-log","url":"demo1.html"}*/
 								]
 						},{"menuid":"8","icon":"icon-sys","menuname":"流量分析",
-							"menus":[{"menuid":"21","menuname":"流量分析","icon":"icon-nav","url":"liner.html"}
+							"menus":[{"menuid":"21","menuname":"流量分析","icon":"icon-nav","url":"liner1.html"}
                                    /*{"menuid":"22","menuname":"视频监控","icon":"icon-nav","url":"demo1.html"}*/
 								]
 						},{"menuid":"56","icon":"icon-sys","menuname":"后台管理",
@@ -46,7 +46,7 @@
 						}
 				]};
         //设置登录窗口
-        function openPwd() {s
+        function openPwd() {
             $('#w').window({
                 title: '修改密码',
                 width: 300,
@@ -115,13 +115,12 @@
                 });
             })
         });
-		
-		
+
 
     </script>
 
 </head>
-<body class="easyui-layout" style="overflow-y: hidden"  scroll="no">
+<body  class="easyui-layout" style="overflow-y: hidden"  scroll="no">
 <noscript>
 <div style=" position:absolute; z-index:100000; height:2046px;top:0px;left:0px; width:100%; background:white; text-align:center;">
     <img src="images/noscript.gif" alt='抱歉，请开启脚本支持！' />
@@ -136,20 +135,24 @@
         <div class="footer">内容</div>
     </div>
     <div region="west" hide="true" split="true" title="导航菜单" style="width:180px;" id="west">
-<div id="nav" class="easyui-accordion" fit="true" border="false">
+<div id="nav" class="easyui-accordion" fit="true" border="false" style="background-color:#F5FFFA">
 		<!--  导航内容 -->
 				
 			</div>
 
     </div>
-    <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
+    <div id="mainPanle" region="center" style="background-color:#F5FFFA; overflow-y:hidden">
        <div id="tabs" class="easyui-tabs"  fit="true" border="false" > <!--显示所选功能最上面的导航栏-->
-			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; " >
-				<h1 style="font-size:24px;">行为监控<a style="font-size:24px;color:green;" href="http://www.mycodes.net">超级连接</a></h1>
-                 <h1 style="font-size:24px;">流量统计<a style="font-size:24px;color:green;" href="http://www.mycodes.net">超级连接</a></h1>
-                 <h1 style="font-size:24px;">日志查看<a style="font-size:24px;color:green;" href="http://www.mycodes.net">超级连接</a></h1>
-				<h1 style="font-size:24px;">配置规则<a style="font-size:24px;color:green;" href="http://www.mycodes.net">超级连接</a></h1>
-			</div>
+			<div title="欢迎使用" style="padding:20px;overflow:hidden; font-family: 楷体;color: #7f99be;background-color:#F5FFFA " ><hr color="#F0F0F0"/>
+				<h1 style="font-size:24px;">用户管理<a style="font-size:24px;color:#dedede;" href="userman.html">超级连接</a></h1>
+                <hr color="#F0F0F0"/>
+                <h1 style="font-size:24px;">流量统计<a style="font-size:24px;color:#dedede;" href="liner1.html">超级连接</a></h1>
+                <hr color="#F0F0F0"/>
+                <h1 style="font-size:24px;">日志查看<a style="font-size:24px;color:#dedede;" href="alermlog.html">超级连接</a></h1>
+                <hr color="#F0F0F0"/>
+                <h1 style="font-size:24px;">配置规则<a style="font-size:24px;color:#dedede;" href="addrule.html">超级连接</a></h1>
+                <hr color="#F0F0F0"/>
+            </div>
 		</div>
     </div>
     
