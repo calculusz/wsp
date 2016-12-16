@@ -20,7 +20,7 @@ $(function(){
 
 	$('#tabs').tabs('add',{
 		title:'行为监控系统',
-		content:createFrame('http://hxling.cnblogs.com')
+		content:createFrame('')
 	}).tabs({
         onSelect: function (title) {
             var currTab = $('#tabs').tabs('getTab', title);
