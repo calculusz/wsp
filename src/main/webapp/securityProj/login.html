@@ -1,7 +1,7 @@
-﻿
+﻿<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <!doctype html>
 <html>
-   <meta charset="utf-8" />
+
    <head>
         <title>登陆界面！</title>
         <style type="text/css">
@@ -16,8 +16,8 @@
         </style>
    </head>
 
-<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">  
-<img src="images/background.jpg" height="100%" width="100%"/>  
+<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:0">
+<img src="images/background.jpg" height="100%" width="100%"/>
 <script type="text/javascript">
     $(function(){
     $('#formbackground').height($(window).height());
@@ -54,9 +54,9 @@
         }
     </SCRIPT>
     <script type="text/javascript">
-        window.onload()=autoRandom.innerHTML=createCode(4);
+		    <!--window.onload()=autoRandom.innerHTML=createCode(4);-->
     </script>
-    <form align="center" style="background-color:#cde5f3;color:#003355" class="wrap" action="index.html">   <!--跳转到主页面上-->
+    <form align="center" style="background-color:#cde5f3;color:#003355" class="wrap" action="/jsp/main.jsp">   <!--跳转到主页面上-->
       
          <div style = "" class="frame_1" align="center" id="centerdiv">
              <h1 style="text-align:center">欢迎使用此系统！</h1>
