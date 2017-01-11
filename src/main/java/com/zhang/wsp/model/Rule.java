@@ -5,16 +5,13 @@ package com.zhang.wsp.model;
  */
 public class Rule {
     private int id;
-    private int ruleid;
+    private String name;
     private String description;
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setRuleid(int ruleid) {
-        this.ruleid = ruleid;
-    }
 
     public void setDescription(String description) {
         this.description = description;
@@ -25,11 +22,16 @@ public class Rule {
         return id;
     }
 
-    public int getRuleid() {
-        return ruleid;
-    }
 
     public String getDescription() {
         return description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

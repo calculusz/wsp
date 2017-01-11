@@ -10,8 +10,24 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <mvc:annotation-driven/>
+    <context:annotation-config/>
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.zhang.wsp.controller"/>
+
+
+    <mvc:resources mapping="/test/**" location="securityProj/test/" />
+    <mvc:resources mapping="/html/**" location="securityProj/html/"/>
+    <mvc:resources mapping="/images/**" location="securityProj/images/" />
+    <mvc:resources mapping="/js/**" location="securityProj/js/"/>
+    <mvc:resources mapping="/Css/**" location="securityProj/css/" />
+    <mvc:resources mapping="/user/Css/**" location="securityProj/css/" />
+    <mvc:resources mapping="/user/images/**" location="securityProj/images/" />
+    <mvc:resources mapping="/user/js/**" location="securityProj/js/"/>
+    <mvc:resources mapping="/user/**" location="securityProj/"/>
+    <mvc:resources mapping="/index/**" location="securityProj/"/>
+
+    <mvc:resources mapping="/bootstrap/**" location="securityProj/bootstrap/"/>
 
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"

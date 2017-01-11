@@ -10,7 +10,15 @@ import java.sql.Timestamp;
 public class Record {
     Timestamp timestamp;
     String description;
-    String IP;
+    String userid;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
 
     public Timestamp getTimestamp() {
         return timestamp;
@@ -28,11 +36,5 @@ public class Record {
         this.description = description;
     }
 
-    public String getIP() {
-        return IP;
-    }
 
-    public void setIP(String IP) {
-        this.IP = IP;
-    }
 }

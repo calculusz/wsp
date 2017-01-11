@@ -47,7 +47,7 @@
 </head>
 <body bgcolor="#F5FFFA">
 </br></br></br></br><hr color="#F0F0F0"/></br></br></br></br>
-<h1>&nbsp;规则列表</h1><hr color="#F0F0F0"/>
+<h1>&nbsp;RuleList</h1><hr color="#F0F0F0"/>
 
 
 
@@ -56,7 +56,7 @@
     <!-- Table goes in the document BODY -->
     <table class="gridtable" width="1150" id="grid">
         <tr>
-            <th><input name="remember" type="checkbox" id="remember" />规则号</th><th>规则名称</th><th>操作</th>
+            <th><input name="remember" type="checkbox" id="remember" />RuleID</th><th>RuleName</th><th>Operation</th>
         </tr>
         <tr>
             <!--<td>
@@ -80,34 +80,13 @@
 <script src="js/jquery-1.10.2.min.js"></script>
 <script>
     $.ajax({
-        url:'',
+        url:'refresh.do',
         type:'GET',
         success:function(data){
             console.log('data:'+JSON.stringify(data));
-            var option ='';
-            data = option;
-            option = {
-                "info": [{
-                    "ID": "1",
-                    "name": "淘宝"
-                },{
-                    "ID": "2",
-                    "name": "淘宝"
-                },{
-                    "ID": "3",
-                    "name": "淘宝"
-                }
-                    ,{
-                        "ID": "4",
-                        "name": "京东"
-                    }
-                    ,{
-                        "ID": "5",
-                        "name": "淘宝"
-                    }]
-            };
 
-            rules(option);
+
+            rules(data);
 
         },
         error:function(data){
@@ -120,8 +99,8 @@
         option.info.forEach(function(name,index){
             var tr = document.createElement("tr");
             var grid = document.getElementById("grid");
-            var str = "<td>" + option.info[index].ID + "</td><td>" +
-                    option.info[index].name + "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>删除</a></td>";
+            var str = "<td>" + option.info[index].id + "</td><td>" +
+                    option.info[index].name + "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>del</a></td>";
             tr.innerHTML = str;
             grid.appendChild(tr);
         });

@@ -25,8 +25,8 @@ public class RuleServiceImpl  implements RuleService{
     public List<Rule> getAllRule(){
      return ruleDao.selectAllRule();
     }
-    public void addRule(String description){
-       ruleDao.addRule(description);
+    public void addRule(String description,String name){
+       ruleDao.addRule(description,name);
     }
     public void delRule(int id){
         ruleDao.delRule(id);

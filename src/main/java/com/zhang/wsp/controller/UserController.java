@@ -25,6 +25,11 @@ public class UserController {
 //        log.info("查询所有用户信息");
 //        List<User> userList = userService.getAllUser();
 //        model.addAttribute("userList",userList);
+        return "main";
+
+    }
+    @RequestMapping("/liner1.html")
+    public String test(HttpServletRequest request,Model model){
         return "success";
     }
 }

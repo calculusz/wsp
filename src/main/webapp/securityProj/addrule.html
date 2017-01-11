@@ -3,7 +3,7 @@
 <html>
 <meta charset="utf-8" />
 <head>
-    <title>登陆界面！</title>
+    <title>Login Page!</title>
     <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     <style type="text/css">
         #centerdiv{
@@ -29,8 +29,8 @@
     </style>
 </head>
 
-<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:-1">
-    <img src="images/addrule.jpg" height="100%" width="100%"/>
+<div id="formbackground" style="position:absolute; width:100%; height:100%; z-index:0">
+    <img src="images/fontpage1.jpg" height="100%" width="100%"/>
     <script src="js/jquery-1.10.2.min.js"></script>
 
     <script type="text/javascript">
@@ -46,18 +46,17 @@
     <form align="center" style="background-color:#cde5f3;color:#003355" class="wrap" >   <!--跳转到主页面上-->
 
         <div style = "" class="frame_1" align="center" id="centerdiv">
-            <h1 style="text-align:center">添加规则！</h1>
-
+            <h1 style="text-align:center">&nbsp;&nbsp;addRule:</h1>
             <table class="form_1">
 
                 <tr>
-                    <td class="label" >规则名称：</td>
+                    <td class="label" >&nbsp;&nbsp;&nbsp;ruleName:</td>
                     <td>
                         <input required class="textbox_1 " id="username" name="username" type="text"  style="width:190px;height:20px;margin-bottom:10px;">					                </td>
                     <td><span class="info"><label class="error"></label></span></td>
                 </tr>
                 <tr  >
-                    <td class="label">规则描述：</td>
+                    <td class="label">ruleDescription:</td>
                     <td>
                         <input required class="textbox_1 " id="describe" name="describe" type="text" value="" style="width:190px;height:20px;margin-bottom:10px;">					</td>
                     <td><span class="info"><label class="error"></label></span></td>
@@ -66,8 +65,8 @@
                 <tr class="actions">
                     <td></td>
                 <tr></tr><td></td>
-                <td >&nbsp;&nbsp;<input type="button" name="Submit" value="添加" onClick="submitForm();" >&nbsp;
-                    <input type="reset" name="Submit2" value="重置" onclick="removeStyle()"></td>
+                <td >&nbsp;&nbsp;<input type="button" name="Submit" value="Add" onClick="submitForm();" >&nbsp;
+                    <input type="reset" name="Submit2" value="Reset" onclick="removeStyle()"></td>
                 </tr>
 
 
@@ -159,7 +158,7 @@
     function submitForm(){
         if(validateForm()){
             $.ajax({
-                url:'',//'http://192.178.106.100:3000/mock/test',
+                url:'/addrule',//'http://192.178.106.100:3000/mock/test',
                 data:{
                     username:$('#username').val(),
                     describe:$('#describe').val()

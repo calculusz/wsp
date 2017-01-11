@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface RuleService {
      List<Rule> getAllRule();
-    void addRule(String description);
+    void addRule(String description,String name);
     void delRule(int id);
 
 }

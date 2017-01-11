@@ -1,6 +1,7 @@
 package com.zhang.wsp.dao;
 
 import com.zhang.wsp.model.Record;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.List;
  */
 @Repository
 public interface RecordDao {
-    List<Record> getAllRecord();
-    List<Record> getUserRecord();
+    List<Record> selectAllRecord();
+    List<Record> getUserRecord(@Param("userid") int userid);
 
 
 }

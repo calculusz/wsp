@@ -19,7 +19,7 @@ $(function(){
 
 
 	$('#tabs').tabs('add',{
-		title:'行为监控系统',
+		title:'BehaviorMS',
 		content:createFrame('')
 	}).tabs({
         onSelect: function (title) {

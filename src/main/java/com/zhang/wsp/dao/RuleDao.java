@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface RuleDao {
     List<Rule> selectAllRule();
-    void addRule(@Param("description") String description);
+    void addRule(@Param("description") String description,@Param("name") String name);
     void delRule(@Param("ruleid") int ruleid);
 }

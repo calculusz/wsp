@@ -129,7 +129,7 @@
 </head>
 <body bgcolor="#F5FFFA">
 </br></br></br></br></h1><hr color="#F0F0F0"/></br></br></br></br>
-<h1>&nbsp;告警日志</h1><hr color="#F0F0F0"/>
+<h1>&nbsp;AlarmLog</h1><hr color="#F0F0F0"/>
 
 
 
@@ -138,10 +138,10 @@
     <!-- Table goes in the document BODY -->
     <table class="gridtable" width="1150"  >
         <tr>
-            <th><input name="remember" type="checkbox" id="remember" />告警ID</th>
-            <th>告警IP</th>
-            <th>告警名称</th>
-            <th>操作</th>
+            <th><input name="remember" type="checkbox" id="remember" />AlarmID</th>
+            <th>AlarmIP</th>
+            <th>AlarmName</th>
+            <th>Operation</th>
         </tr>
 
         <!--<tr class="content">-->
@@ -171,39 +171,39 @@
 <script>
     //进入页面 发送ajax请求 获取table值
     $.ajax({
-        url:'',//'http://192.178.106.100:3000/mock/test',
+        url:'getrecord.do',//'http://192.178.106.100:3000/mock/test',
         //dataType:'JSON',
         type:'GET',
         success:function(data){
             console.log('success data:'+JSON.stringify(data));
             //使用真实url时 将data注释
-            var data = {
-                "info": [{
-                    "ID": "1",
-                    "address":"/192.168.3.1",
-                    "name": "淘宝"
-                },{
-                    "ID": "2",
-                    "address":"/192.168.3.2",
-                    "name": "京东"
-                },{
-                    "ID": "3",
-                    "address":"/192.168.3.3",
-                    "name": "QQ"
-                },
-                    {
-                        "ID": "4",
-                        "address":"/192.168.3.4",
-                        "name": "天猫"
-                    }
-                    ,{
-                        "ID": "5",
-                        "address":"/192.168.3.6",
-                        "name": "新浪"
-                    }]
-            };
-            var option = data;
-            rules(option);
+//            var data = {
+//                "info": [{
+//                    "ID": "1",
+//                    "address":"/192.168.3.1",
+//                    "name": "淘宝"
+//                },{
+//                    "ID": "2",
+//                    "address":"/192.168.3.2",
+//                    "name": "京东"
+//                },{
+//                    "ID": "3",
+//                    "address":"/192.168.3.3",
+//                    "name": "QQ"
+//                },
+//                    {
+//                        "ID": "4",
+//                        "address":"/192.168.3.4",
+//                        "name": "天猫"
+//                    }
+//                    ,{
+//                        "ID": "5",
+//                        "address":"/192.168.3.6",
+//                        "name": "新浪"
+//                    }]
+//            };
+//            var option = data;
+            rules(data);
 
 
         },
@@ -223,11 +223,11 @@
 //            tr.innerHTML = str;
 //            grid.appendChild(tr);
 //        });
-        for(var i=0;i<option.info.length;i++){
-
-            var str = "<tr><td>" + option.info[i].ID + "</td><td>" +
-                    option.info[i].address + "</td><td>" +
-                    option.info[i].name+ "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>删除</a></td></tr>";
+//        for(var i=0;i<option.info.length;i++){
+            for(var i=0;i<option.length;i++){
+            var str = "<tr><td>" + option[i].userid + "</td><td>" +
+                    option[i].description + "</td><td>" +
+                    option[i].timestamp+ "</td><td><a href='javascript:;' onclick='deleteCurrentRow(this)'>delete</a></td></tr>";
 
             $('.gridtable').append(str);
 

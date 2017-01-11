@@ -4,8 +4,8 @@
 
     <resultMap id="RuleBaseMap" type="com.zhang.wsp.model.Rule">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="ruleid" property="ruleid" jdbcType="INTEGER"/>
         <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
 
     </resultMap>
 
@@ -18,7 +18,7 @@
     </select>
 
     <select id="addRule" parameterType="java.lang.String" >
-        INSERT INTO rule (description) VALUES (#{description})
+        INSERT INTO rule (description,name) VALUES (#{description},#{name})
 
     </select>
 </mapper>

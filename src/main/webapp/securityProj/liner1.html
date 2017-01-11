@@ -14,7 +14,7 @@
 <body>
 
 <div>
-    <button onclick="append();">Append point</button>
+    <button onclick="timedMsg();">Append point</button>
     <button onclick="restart();">Replay</button>
     <button onclick="reset();">Reset</button>
 </div>
@@ -223,10 +223,25 @@
 
     chart.start();
 
+//    function append() {
+//        chart.append([
+//            { label: 'Rnd', value: 1300 + ( Math.random() * 1500 ), future: true }
+//        ]);
+//    }
     function append() {
-        chart.append([
-            { label: 'Rnd', value: 1300 + ( Math.random() * 1500 ), future: true }
-        ]);
+        $.ajax({
+            url:'traffic.do',//'http://localhost/traffic/json',
+            type:'GET',
+            success:function(data){
+                console.log('data:'+JSON.stringify(data));
+                chart.append([
+                    {label:'Rnd',value: data.traffic, future: true}
+                ])
+            },
+            error:function(){
+                alert('data:'+JSON.stringify(data));
+            }
+        })
     }
 
     function restart() {
@@ -235,30 +250,30 @@
 
     function reset() {
         $.ajax({
-            url:'',//'http://192.168.1.13:3000/mock/json',
+            url:'',//'http://localhost/traffic/json',
             type:'GET',
             success:function(data){
                 console.log('data:'+JSON.stringify(data));
                 var data = [
-                    { label: 'one', value:1200 },
-                    { label: 'Two', value: 2000 },
-                    { label: 'Three', value: 1000 },
-                    { label: 'Four', value: 1200 },
-                    { label: 'Five', value: 1400 },
-                    { label: 'Six', value: 1300 },
-                    { label: 'Seven', value: 2250 },
-                    { label: 'Eight', value: 1100 },
-                    { label: 'Nine', value: 1580 },
-                    { label: 'Ten', value: 2000 },
-                    { label: 'Eleven', value: 1200},
-                    { label: 'Twelve', value: 1800 },
-                    { label: 'thirteen', value: 2200 },
-                    { label: 'fourteen', value: 2080 },
-                    { label: 'fifteen', value: 2300 },
-                    { label: 'sixteen', value: 1060 },
-                    { label: 'seventeen', value: 3020 },
-                    { label: 'eighteen', value: 1020, future: true },
-                    { label: 'nineteen', value: 1020, future: true }
+                    { label: 'one', value:1 }
+//                    { label: 'Two', value: 2000 },
+//                    { label: 'Three', value: 1000 },
+//                    { label: 'Four', value: 1200 },
+//                    { label: 'Five', value: 1400 },
+//                    { label: 'Six', value: 1300 },
+//                    { label: 'Seven', value: 2250 },
+//                    { label: 'Eight', value: 1100 },
+//                    { label: 'Nine', value: 1580 },
+//                    { label: 'Ten', value: 2000 },
+//                    { label: 'Eleven', value: 1200},
+//                    { label: 'Twelve', value: 1800 },
+//                    { label: 'thirteen', value: 2200 },
+//                    { label: 'fourteen', value: 2080 },
+//                    { label: 'fifteen', value: 2300 },
+//                    { label: 'sixteen', value: 1060 },
+//                    { label: 'seventeen', value: 3020 },
+//                    { label: 'eighteen', value: 1020, future: true },
+//                    { label: 'nineteen', value: 1020, future: true }
 
 
                 ];
@@ -271,6 +286,10 @@
 
     }
 
+    function timedMsg()
+    {
+        var t=setInterval("append()",2000);
+    }
 
 </script>
 </body>
